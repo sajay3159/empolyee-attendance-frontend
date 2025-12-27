@@ -110,10 +110,6 @@ const Login = () => {
                 mt: 3,
                 py: 1.5,
                 fontSize: "16px",
-                background: "linear-gradient(45deg, #4a90e2, #50e3c2)",
-                "&:hover": {
-                  background: "linear-gradient(45deg, #357ABD, #3CC5A0)",
-                },
               }}
               disabled={loading}
             >

@@ -41,8 +41,10 @@ const Attendance = () => {
       sortable: false,
       filterable: false,
       disableColumnMenu: true,
-      valueGetter: (params) =>
-        params.api.getRowIndexRelativeToVisibleRows(params.id) + 1,
+      valueGetter: (params) => {
+        const rowIndex = params.api.getRowIndex(params.id);
+        return rowIndex + 1;
+      },
     },
     {
       field: "employee",

@@ -39,7 +39,7 @@ const AppTopBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "#2b2a2a" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Logo */}
