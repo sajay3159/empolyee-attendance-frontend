@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import loginBg from "../assets/login-bg.jpg";
 
 const Login = () => {
   const dispatch = useDispatch();
