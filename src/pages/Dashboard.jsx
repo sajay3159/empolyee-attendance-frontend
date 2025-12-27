@@ -72,11 +72,27 @@ const Dashboard = () => {
                 }
               }}
             >
-              <CardContent>
+              {/* <CardContent>
                 <Typography variant="subtitle2" color="text.secondary">
                   {card.label}
                 </Typography>
                 <Typography variant="h4">{card.value}</Typography>
+              </CardContent> */}
+
+              <CardContent>
+                <Typography
+                  variant="subtitle2"
+                  color="text.secondary"
+                  sx={{ fontSize: { xs: 12, sm: 14, md: 14 } }}
+                >
+                  {card.label}
+                </Typography>
+                <Typography
+                  variant="h4"
+                  sx={{ fontSize: { xs: 24, sm: 28, md: 32 } }}
+                >
+                  {card.value}
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
