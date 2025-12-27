@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
@@ -13,14 +13,23 @@ import dayjs from "dayjs";
 
 import { setFilters } from "../features/attendance/attendanceSlice";
 import { fetchAttendanceThunk } from "../features/attendance/attendanceThunk";
+import useDebounce from "../hooks/useDebounce";
 
 const Attendance = () => {
   const dispatch = useDispatch();
   const { list, loading, filters } = useSelector((state) => state.attendance);
 
+  const [searchInput, setSearchInput] = useState(filters.search);
+  const debouncedSearch = useDebounce(searchInput, 400);
+
   useEffect(() => {
     dispatch(fetchAttendanceThunk());
-  }, [dispatch, filters]);
+  }, [dispatch, filters.date, filters.status, debouncedSearch]);
+
+  //  Sync debounced search → Redux
+  useEffect(() => {
+    dispatch(setFilters({ search: debouncedSearch }));
+  }, [debouncedSearch, dispatch]);
 
   const columns = [
     {
@@ -41,11 +50,7 @@ const Attendance = () => {
       flex: 1,
       valueGetter: (params) => params.row.employee.name,
     },
-    {
-      field: "date",
-      headerName: "Date",
-      flex: 1,
-    },
+    { field: "date", headerName: "Date", flex: 1 },
     {
       field: "punchIn",
       headerName: "Punch In",
@@ -59,16 +64,8 @@ const Attendance = () => {
       valueGetter: (params) =>
         params.row.punchOut ? dayjs(params.row.punchOut).format("HH:mm") : "-",
     },
-    {
-      field: "totalWorkedHours",
-      headerName: "Hours",
-      flex: 1,
-    },
-    {
-      field: "status",
-      headerName: "Status",
-      flex: 1,
-    },
+    { field: "totalWorkedHours", headerName: "Hours", flex: 1 },
+    { field: "status", headerName: "Status", flex: 1 },
   ];
 
   return (
@@ -109,13 +106,12 @@ const Attendance = () => {
           <TextField
             fullWidth
             label="Search Employee"
-            value={filters.search}
-            onChange={(e) => dispatch(setFilters({ search: e.target.value }))}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
           />
         </Grid>
       </Grid>
 
-      {/* Table */}
       {loading ? (
         <CircularProgress />
       ) : (
