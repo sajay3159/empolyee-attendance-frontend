@@ -41,7 +41,8 @@ const Attendance = () => {
       sortable: false,
       filterable: false,
       disableColumnMenu: true,
-      renderCell: (params) => (params.rowIndex ?? 0) + 1,
+      renderCell: (params) =>
+        params.api.getRowIndexRelativeToVisibleRows(params.id) + 1,
     },
 
     {

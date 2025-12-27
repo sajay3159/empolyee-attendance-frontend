@@ -43,7 +43,7 @@ const Login = () => {
         xs={false}
         md={8}
         sx={{
-          backgroundImage: `url(${loginBg})`,
+          backgroundImage: "url(/login-bg.jpg)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
