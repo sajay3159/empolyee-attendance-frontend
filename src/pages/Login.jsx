@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import loginBg from "../assets/login-bg.jpg";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const Login = () => {
         xs={false}
         md={8}
         sx={{
-          backgroundImage: 'url("/images/login-bg.jpg")',
+          backgroundImage: `url(${loginBg})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
