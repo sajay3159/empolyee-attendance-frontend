@@ -24,6 +24,18 @@ const Attendance = () => {
 
   const columns = [
     {
+      field: "sno",
+      headerName: "S.No",
+      width: 90,
+      align: "center",
+      headerAlign: "center",
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
+      valueGetter: (params) =>
+        params.api.getRowIndexRelativeToVisibleRows(params.id) + 1,
+    },
+    {
       field: "employee",
       headerName: "Employee",
       flex: 1,

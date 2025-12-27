@@ -24,3 +24,15 @@ export const punchOutThunk = createAsyncThunk(
     }
   }
 );
+
+export const fetchTodayAttendanceThunk = createAsyncThunk(
+  "employee/fetchToday",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await api.get("/attendance/today");
+      return res.data;
+    } catch (err) {
+      return rejectWithValue("Failed to fetch today attendance");
+    }
+  }
+);

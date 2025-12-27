@@ -18,7 +18,6 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // LOGIN
       .addCase(loginThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -34,7 +33,6 @@ const authSlice = createSlice({
         state.error = action.payload;
       })
 
-      // LOGOUT
       .addCase(logoutThunk.fulfilled, (state) => {
         state.user = null;
         state.token = null;

@@ -9,9 +9,11 @@ import {
 } from "@mui/material";
 
 import {
+  fetchTodayAttendanceThunk,
   punchInThunk,
   punchOutThunk,
 } from "../features/employeeAttendance/employeeThunk";
+import { useEffect } from "react";
 
 const EmployeeAttendance = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,9 @@ const EmployeeAttendance = () => {
     (state) => state.employeeAttendance
   );
 
+  useEffect(() => {
+    dispatch(fetchTodayAttendanceThunk());
+  }, [dispatch]);
   return (
     <Box sx={{ maxWidth: 400, mx: "auto", mt: 5 }}>
       <Card>
