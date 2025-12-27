@@ -100,7 +100,7 @@ const AppTopBar = () => {
 
           {/* User Menu */}
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title={user?.name || "Account"}>
+            <Tooltip title={user?.email || "Account"}>
               <IconButton onClick={(e) => setAnchorElUser(e.currentTarget)}>
                 <Avatar>{user?.name?.charAt(0)?.toUpperCase()}</Avatar>
               </IconButton>
@@ -111,7 +111,14 @@ const AppTopBar = () => {
               open={Boolean(anchorElUser)}
               onClose={() => setAnchorElUser(null)}
             >
-              <MenuItem disabled>{user?.email}</MenuItem>
+              <MenuItem
+                sx={{
+                  pointerEvents: "none",
+                  cursor: "default",
+                }}
+              >
+                {user?.name}
+              </MenuItem>
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
           </Box>
