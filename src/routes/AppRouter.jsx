@@ -5,6 +5,7 @@ import Attendance from "../pages/Attendance";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 import AppLayout from "../components/layout/AppLayout";
+import EmployeeAttendance from "../pages/EmployeeAttendance";
 
 const AppRouter = () => {
   return (
@@ -27,6 +28,16 @@ const AppRouter = () => {
       >
         <Route path="/" element={<Dashboard />} />
         <Route path="/attendance" element={<Attendance />} />
+      </Route>
+      <Route
+        path="/employee"
+        element={
+          <ProtectedRoute roles={["employee"]}>
+            <AppLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<EmployeeAttendance />} />
       </Route>
     </Routes>
   );

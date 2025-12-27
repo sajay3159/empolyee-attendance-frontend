@@ -2,9 +2,13 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const PublicRoute = ({ children }) => {
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
 
-  return isAuthenticated ? <Navigate to="/" replace /> : children;
+  if (isAuthenticated && user) {
+    return <Navigate to={user.role === "admin" ? "/" : "/employee"} replace />;
+  }
+
+  return children;
 };
 
 export default PublicRoute;

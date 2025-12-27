@@ -10,9 +10,13 @@ import {
   CircularProgress,
   Box,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { setFilters } from "../features/attendance/attendanceSlice";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { data, loading, error } = useSelector((state) => state.analytics);
 
   useEffect(() => {
@@ -57,8 +61,15 @@ const Dashboard = () => {
                 "&:hover": { transform: "scale(1.03)" },
               }}
               onClick={() => {
-                //  Next step hook (don’t implement yet)
-                console.log("Clicked:", card.label);
+                if (card.label === "Late") {
+                  dispatch(setFilters({ status: "late" }));
+                  navigate("/attendance");
+                }
+
+                if (card.label === "On-Time") {
+                  dispatch(setFilters({ status: "on-time" }));
+                  navigate("/attendance");
+                }
               }}
             >
               <CardContent>
