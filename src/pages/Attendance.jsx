@@ -41,30 +41,52 @@ const Attendance = () => {
       sortable: false,
       filterable: false,
       disableColumnMenu: true,
-      renderCell: (params) => params.rowIndex + 1,
+      renderCell: (params) => (params.rowIndex ?? 0) + 1,
     },
+
     {
       field: "employee",
       headerName: "Employee",
       flex: 1,
-      valueGetter: (params) => params.row.employee.name,
+      renderCell: (params) => params.row?.employee?.name || "—",
     },
-    { field: "date", headerName: "Date", flex: 1 },
+
+    {
+      field: "date",
+      headerName: "Date",
+      flex: 1,
+      renderCell: (params) => params.row?.date || "—",
+    },
+
     {
       field: "punchIn",
       headerName: "Punch In",
       flex: 1,
-      valueGetter: (params) => dayjs(params.row.punchIn).format("HH:mm"),
+      renderCell: (params) =>
+        params.row?.punchIn ? dayjs(params.row.punchIn).format("HH:mm") : "—",
     },
+
     {
       field: "punchOut",
       headerName: "Punch Out",
       flex: 1,
-      valueGetter: (params) =>
-        params.row.punchOut ? dayjs(params.row.punchOut).format("HH:mm") : "-",
+      renderCell: (params) =>
+        params.row?.punchOut ? dayjs(params.row.punchOut).format("HH:mm") : "—",
     },
-    { field: "totalWorkedHours", headerName: "Hours", flex: 1 },
-    { field: "status", headerName: "Status", flex: 1 },
+
+    {
+      field: "totalWorkedHours",
+      headerName: "Hours",
+      flex: 1,
+      renderCell: (params) => params.row?.totalWorkedHours || "—",
+    },
+
+    {
+      field: "status",
+      headerName: "Status",
+      flex: 1,
+      renderCell: (params) => params.row?.status || "—",
+    },
   ];
 
   return (
