@@ -1,11 +1,11 @@
 import authReducer from "../features/auth/authSlice";
 // import attendanceReducer from "../features/attendance/attendanceSlice";
-// import analyticsReducer from "../features/analytics/analyticsSlice";
+import analyticsReducer from "../features/analytics/analyticsSlice";
 
 const rootReducer = {
   auth: authReducer,
   //   attendance: attendanceReducer,
-  //   analytics: analyticsReducer,
+  analytics: analyticsReducer,
 };
 
 export default rootReducer;

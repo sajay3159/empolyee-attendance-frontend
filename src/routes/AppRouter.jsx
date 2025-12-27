@@ -4,6 +4,7 @@ import Dashboard from "../pages/Dashboard";
 import Attendance from "../pages/Attendance";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
+import AppLayout from "../components/layout/AppLayout";
 
 const AppRouter = () => {
   return (
@@ -18,22 +19,15 @@ const AppRouter = () => {
       />
 
       <Route
-        path="/"
         element={
           <ProtectedRoute roles={["admin"]}>
-            <Dashboard />
+            <AppLayout />
           </ProtectedRoute>
         }
-      />
-
-      <Route
-        path="/attendance"
-        element={
-          <ProtectedRoute roles={["admin"]}>
-            <Attendance />
-          </ProtectedRoute>
-        }
-      />
+      >
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/attendance" element={<Attendance />} />
+      </Route>
     </Routes>
   );
 };
