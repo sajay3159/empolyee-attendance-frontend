@@ -3,7 +3,6 @@ import { loginThunk } from "../features/auth/authThunk";
 import {
   Button,
   TextField,
-  Box,
   Typography,
   Paper,
   CircularProgress,
@@ -37,7 +36,7 @@ const Login = () => {
 
   return (
     <Grid container sx={{ minHeight: "100vh" }}>
-      {/* Left side image */}
+      {/* Image */}
       <Grid
         item
         xs={false}
@@ -52,7 +51,7 @@ const Login = () => {
         }}
       />
 
-      {/* Right side login form */}
+      {/* Login form */}
       <Grid
         item
         xs={12}

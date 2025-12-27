@@ -23,3 +23,17 @@ export const logoutThunk = createAsyncThunk("auth/logout", async () => {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
 });
+
+export const createUserThunk = createAsyncThunk(
+  "auth/createUser",
+  async (payload, { rejectWithValue }) => {
+    try {
+      const res = await api.post("/auth/create-user", payload);
+      return res.data;
+    } catch (err) {
+      return rejectWithValue(
+        err.response?.data?.message || "Failed to create user"
+      );
+    }
+  }
+);

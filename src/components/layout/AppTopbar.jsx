@@ -16,11 +16,6 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Container from "@mui/material/Container";
 
-const pages = [
-  { label: "Dashboard", path: "/" },
-  { label: "Attendance", path: "/attendance" },
-];
-
 const AppTopBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,6 +23,15 @@ const AppTopBar = () => {
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const pages =
+    user?.role === "admin"
+      ? [
+          { label: "Dashboard", path: "/" },
+          { label: "Attendance", path: "/attendance" },
+          { label: "Add Employee", path: "/add-employee" },
+        ]
+      : [{ label: "My Attendance", path: "/employee" }];
 
   const handleLogout = () => {
     dispatch(logoutThunk());

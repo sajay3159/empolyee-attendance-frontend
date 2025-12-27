@@ -6,6 +6,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 import AppLayout from "../components/layout/AppLayout";
 import EmployeeAttendance from "../pages/EmployeeAttendance";
+import AddEmployee from "../pages/AddEmployee";
 
 const AppRouter = () => {
   return (
@@ -38,6 +39,17 @@ const AppRouter = () => {
         }
       >
         <Route index element={<EmployeeAttendance />} />
+      </Route>
+
+      <Route
+        path="/add-employee"
+        element={
+          <ProtectedRoute roles={["admin"]}>
+            <AppLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<AddEmployee />} />
       </Route>
     </Routes>
   );

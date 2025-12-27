@@ -56,7 +56,7 @@ const Dashboard = () => {
           <Grid item xs={12} sm={6} md={4} key={card.label}>
             <Card
               sx={{
-                cursor: "pointer",
+                // cursor: "pointer",
                 transition: "0.3s",
                 "&:hover": { transform: "scale(1.03)" },
               }}
