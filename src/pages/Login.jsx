@@ -42,9 +42,7 @@ const Login = () => {
         xs={false}
         md={8}
         sx={{
-          backgroundImage:
-            'url("https://static.vecteezy.com/system/resources/previews/008/570/352/non_2x/charming-asian-female-office-worker-working-on-a-laptop-computer-and-enjoying-drinking-coffee-in-a-modern-office-free-photo.jpg")',
-
+          backgroundImage: 'url("/images/login-bg.jpg")',
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
