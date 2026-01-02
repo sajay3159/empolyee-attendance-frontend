@@ -19,8 +19,8 @@ const Login = () => {
   );
 
   const [form, setForm] = useState({
-    email: "",
-    password: "",
+    email: "admin@test.com",
+    password: "admin123",
   });
 
   const submitHandler = (e) => {
@@ -35,22 +35,38 @@ const Login = () => {
   }, [isAuthenticated, user, navigate]);
 
   return (
-    <Grid
-      container
-      sx={{
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "#f5f5f5",
-      }}
-    >
-      <Grid item xs={11} sm={8} md={4}>
+    <Grid container sx={{ minHeight: "100vh" }}>
+      {/* Image */}
+      <Grid
+        item
+        xs={false}
+        md={8}
+        sx={{
+          backgroundImage: "url(/login-bg.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+
+      {/* Login form */}
+      <Grid
+        item
+        xs={12}
+        md={4}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          background: "#f5f5f5",
+        }}
+      >
         <Paper
           elevation={10}
           sx={{
             p: 5,
-            width: "100%",
+            width: "80%",
+            maxWidth: 400,
             borderRadius: 3,
             textAlign: "center",
           }}
