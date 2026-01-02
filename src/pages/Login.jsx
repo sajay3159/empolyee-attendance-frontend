@@ -14,13 +14,14 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { loading, error, isAuthenticated, user } = useSelector(
     (state) => state.auth
   );
 
   const [form, setForm] = useState({
-    email: "admin@test.com",
-    password: "admin123",
+    email: "",
+    password: "",
   });
 
   const submitHandler = (e) => {
@@ -36,7 +37,7 @@ const Login = () => {
 
   return (
     <Grid container sx={{ minHeight: "100vh" }}>
-      {/* Image */}
+      {/* Left Image */}
       <Grid
         item
         xs={false}
@@ -49,7 +50,7 @@ const Login = () => {
         }}
       />
 
-      {/* Login form */}
+      {/* Login Form */}
       <Grid
         item
         xs={12}
@@ -71,6 +72,17 @@ const Login = () => {
             textAlign: "center",
           }}
         >
+          {/* Testing Credentials */}
+          <Typography
+            variant="body2"
+            color="error"
+            sx={{ mb: 2, fontWeight: 500 }}
+          >
+            For testing only <br />
+            <strong>Email:</strong> admin@test.com <br />
+            <strong>Password:</strong> admin123
+          </Typography>
+
           <Typography variant="h4" sx={{ mb: 3, fontWeight: "bold" }}>
             Login
           </Typography>
@@ -104,11 +116,7 @@ const Login = () => {
               fullWidth
               type="submit"
               variant="contained"
-              sx={{
-                mt: 3,
-                py: 1.5,
-                fontSize: "16px",
-              }}
+              sx={{ mt: 3, py: 1.5, fontSize: "16px" }}
               disabled={loading}
             >
               {loading ? (
