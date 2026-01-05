@@ -56,7 +56,6 @@ const Dashboard = () => {
           <Grid item xs={12} sm={6} md={4} key={card.label}>
             <Card
               sx={{
-                // cursor: "pointer",
                 transition: "0.3s",
                 "&:hover": { transform: "scale(1.03)" },
               }}
@@ -72,13 +71,6 @@ const Dashboard = () => {
                 }
               }}
             >
-              {/* <CardContent>
-                <Typography variant="subtitle2" color="text.secondary">
-                  {card.label}
-                </Typography>
-                <Typography variant="h4">{card.value}</Typography>
-              </CardContent> */}
-
               <CardContent>
                 <Typography
                   variant="subtitle2"
