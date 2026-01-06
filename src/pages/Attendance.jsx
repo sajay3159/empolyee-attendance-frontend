@@ -22,11 +22,16 @@ const Attendance = () => {
   const [searchInput, setSearchInput] = useState(filters.search);
   const debouncedSearch = useDebounce(searchInput, 400);
 
+  //  Pagination state
+  const [paginationModel, setPaginationModel] = useState({
+    page: 0,
+    pageSize: 10,
+  });
+
   useEffect(() => {
     dispatch(fetchAttendanceThunk());
   }, [dispatch, filters.date, filters.status, debouncedSearch]);
 
-  //  Sync debounced search → Redux
   useEffect(() => {
     dispatch(setFilters({ search: debouncedSearch }));
   }, [debouncedSearch, dispatch]);
@@ -42,7 +47,9 @@ const Attendance = () => {
       filterable: false,
       disableColumnMenu: true,
       renderCell: (params) =>
-        params.api.getRowIndexRelativeToVisibleRows(params.id) + 1,
+        paginationModel.page * paginationModel.pageSize +
+        params.api.getRowIndexRelativeToVisibleRows(params.id) +
+        1,
     },
 
     {
@@ -142,7 +149,10 @@ const Attendance = () => {
           columns={columns}
           getRowId={(row) => row._id}
           autoHeight
-          pageSize={10}
+          pagination
+          pageSizeOptions={[10]}
+          paginationModel={paginationModel}
+          onPaginationModelChange={setPaginationModel}
         />
       )}
     </Box>
