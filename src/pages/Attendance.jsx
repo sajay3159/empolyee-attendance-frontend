@@ -21,8 +21,6 @@ const Attendance = () => {
 
   const [searchInput, setSearchInput] = useState(filters.search);
   const debouncedSearch = useDebounce(searchInput, 400);
-
-  //  Pagination state
   const [paginationModel, setPaginationModel] = useState({
     page: 0,
     pageSize: 10,
