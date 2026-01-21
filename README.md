@@ -14,7 +14,6 @@ Yup
 Day.js
 
 Features (Frontend)
-Admin
 
 Login
 Dashboard analytics
