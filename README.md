@@ -13,7 +13,7 @@ Axios
 Yup
 Day.js
 
-Features (Frontend)
+Features
 
 Login
 Dashboard analytics
