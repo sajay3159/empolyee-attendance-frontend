@@ -28,9 +28,7 @@ Getting Started
 
 Install dependencies
 npm install
-
 Start development server
 npm run dev
-
 App runs on:
 http://localhost:5173
