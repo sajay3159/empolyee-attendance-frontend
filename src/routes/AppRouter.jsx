@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 import AppLayout from "../components/layout/AppLayout";
+import AllUsers from "../pages/AllUsers";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 const Attendance = lazy(() => import("../pages/Attendance"));
@@ -31,6 +32,7 @@ const AppRouter = () => {
           }
         >
           <Route path="/" element={<Dashboard />} />
+          <Route path="/all-users" element={<AllUsers />} />
           <Route path="/attendance" element={<Attendance />} />
         </Route>
 

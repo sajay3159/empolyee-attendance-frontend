@@ -16,7 +16,21 @@ export const loginThunk = createAsyncThunk(
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || "Login failed");
     }
-  }
+  },
+);
+
+export const fetchUsersThunk = createAsyncThunk(
+  "auth/fetchUsers",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await api.get("/auth/users");
+      return response.data.users;
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to fetch users",
+      );
+    }
+  },
 );
 
 export const logoutThunk = createAsyncThunk("auth/logout", async () => {
@@ -32,8 +46,8 @@ export const createUserThunk = createAsyncThunk(
       return res.data;
     } catch (err) {
       return rejectWithValue(
-        err.response?.data?.message || "Failed to create user"
+        err.response?.data?.message || "Failed to create user",
       );
     }
-  }
+  },
 );

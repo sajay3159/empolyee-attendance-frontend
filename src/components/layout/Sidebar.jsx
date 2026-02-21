@@ -48,6 +48,13 @@ const Sidebar = ({ open, setOpen }) => {
           <ListItemButton onClick={() => navigate("/attendance")}>
             <ListItemText primary="Attendance" />
           </ListItemButton>
+
+          <ListItem button onClick={() => navigate("/all-users")}>
+            <ListItemIcon>
+              <PeopleIcon />
+            </ListItemIcon>
+            <ListItemText primary="All Users" />
+          </ListItem>
         </List>
 
         <Button
