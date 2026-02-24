@@ -6,8 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
-node_modules
 dist-ssr
 
 # Editor directories and files
@@ -15,3 +13,9 @@ dist-ssr
 
 # Environment variables
 .env
+
+# Build folder
+dist/
+
+# Dependencies
+node_modules/
