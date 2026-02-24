@@ -10,6 +10,7 @@ const Dashboard = lazy(() => import("../pages/Dashboard"));
 const Attendance = lazy(() => import("../pages/Attendance"));
 const EmployeeAttendance = lazy(() => import("../pages/EmployeeAttendance"));
 const AddEmployee = lazy(() => import("../pages/AddEmployee"));
+const Reports = lazy(() => import("../pages/Reports"));
 
 const AppRouter = () => {
   return (
@@ -32,6 +33,7 @@ const AppRouter = () => {
           }
         >
           <Route path="/" element={<Dashboard />} />
+          <Route path="/reports" element={<Reports />} />
           <Route path="/all-users" element={<AllUsers />} />
           <Route path="/attendance" element={<Attendance />} />
         </Route>

@@ -30,6 +30,7 @@ const AppTopBar = () => {
           { label: "Dashboard", path: "/" },
           { label: "Attendance", path: "/attendance" },
           { label: "All Users", path: "/all-users" },
+          { label: "Monthly Reports", path: "/reports" },
           { label: "Add Employee", path: "/add-employee" },
         ]
       : [{ label: "My Attendance", path: "/employee" }];

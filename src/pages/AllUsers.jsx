@@ -63,7 +63,7 @@ const AllUsers = () => {
               <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
                 <TableRow>
                   <TableCell>
-                    <strong>#</strong>
+                    <strong>S.No.</strong>
                   </TableCell>
                   <TableCell>
                     <strong>Name</strong>
