@@ -22,6 +22,7 @@ Create employees
 Employee
 Login
 Punch-In / Punch-Out
+Filter as per Date, Employee name
 View today’s attendance status
 
 Getting Started
