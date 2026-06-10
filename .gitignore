@@ -9,7 +9,7 @@ lerna-debug.log/
 dist-ssr/
 
 # Editor directories and files
-!.vscode/extensions.json
+!.vscode/extensions.json/
 
 # Environment variables
 .env
