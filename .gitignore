@@ -14,7 +14,7 @@ dist-ssr/
 # Environment variables/
 .env
 
-# Build folder
+# Build folder/
 dist/
 
 # Dependencies
