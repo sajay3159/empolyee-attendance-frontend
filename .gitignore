@@ -17,5 +17,5 @@ dist-ssr/
 # Build folder/
 dist/
 
-# Dependencies/
+# Dependencies
 node_modules/
